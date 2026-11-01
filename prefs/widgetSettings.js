@@ -545,3 +545,33 @@ export function buildImageSettings(grid, rowIdx, widget, settings, saveHandlers,
 
     return rowIdx;
 }
+
+export function buildAudioVizSettings(grid, rowIdx, widget, saveHandlers) {
+    const asciiLabel = new Gtk.Label({ label: 'ASCII Character:', xalign: 0, hexpand: true });
+    const asciiEntry = new Gtk.Entry({ text: widget.asciiChar || '', hexpand: true });
+    asciiEntry.set_max_length(1);
+    grid.attach(asciiLabel, 0, rowIdx, 1, 1);
+    grid.attach(asciiEntry, 1, rowIdx, 1, 1);
+    rowIdx++;
+
+    const styleLabel = new Gtk.Label({ label: 'Visualization:', xalign: 0, hexpand: true });
+    const styleCombo = new Gtk.ComboBoxText();
+    styleCombo.append('auto', 'Auto (by size)');
+    styleCombo.append('bars', 'Bars');
+    styleCombo.append('wave', 'Wave');
+    styleCombo.set_active_id(widget.vizStyle || 'auto');
+    grid.attach(styleLabel, 0, rowIdx, 1, 1);
+    grid.attach(styleCombo, 1, rowIdx, 1, 1);
+    rowIdx++;
+
+    saveHandlers.push((target) => {
+        const ch = asciiEntry.get_text().trim();
+        if (ch)
+            target.asciiChar = ch.charAt(0);
+        else
+            delete target.asciiChar;
+        target.vizStyle = styleCombo.get_active_id() || 'auto';
+    });
+
+    return rowIdx;
+}

@@ -18,6 +18,7 @@ import {
     createAnimatedImageNode,
     createSlideshowNode
 } from '../widgets/media/index.js';
+import { createAudioVizNode } from '../widgets/audioviz/index.js';
 import { isAnimatedImageFile } from '../utils/widgetUtils.js';
 
 // Whether weather-driven colouring and the condition overlay image are on, resolving
@@ -72,6 +73,7 @@ const WIDGET_CREATORS = {
         }
         return createStaticImageNode(data, w, h, x, y);
     },
+    'audioviz': (data, w, h, x, y) => createAudioVizNode(data, w, h, x, y),
 };
 
 export function createWidgetNode(data, width, height, x, y) {

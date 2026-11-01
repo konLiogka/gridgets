@@ -71,6 +71,7 @@ const SIZE_PRESETS = Object.freeze({
     'mood': WIDE,
     'rss-headlines': SQUARE,
     'top-stories': WIDE_TALL,
+    'audioviz': LANDSCAPE_THREE_TO_TWO,
 });
 
 // Media widgets stay freely resizable instead of following the S/M/L table.

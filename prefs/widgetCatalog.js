@@ -64,6 +64,13 @@ export const STORE_WIDGETS = Object.freeze({
         thumbnail: 'images/image-and-slideshow.svg',
         fallbackIconName: 'view-paged-symbolic',
     },
+    audioViz: {
+        title: 'Audio Visualizer',
+        description: 'Live spectrum of system audio rendered in ASCII art.',
+        gridSize: '6x4',
+        thumbnail: 'images/image-and-slideshow.svg',
+        fallbackIconName: 'audio-x-generic-symbolic',
+    },
     systemDashboard: {
         title: 'System Dashboard',
         description: 'All-in-one dashboard: CPU and memory load, GPU, disk, network, battery, and uptime.',
@@ -251,6 +258,8 @@ function getStoreWidgetKey(widget) {
             return 'imageSlideshow';
         case 'image':
             return 'imageGif';
+        case 'audioviz':
+            return 'audioViz';
         case 'system-dashboard':
             return 'systemDashboard';
         case 'pomodoro':

@@ -179,3 +179,15 @@ export function addImageWidget(settings, imagePath, caption = 'My Image', showCa
 
     addWidget(settings, widgetConfig, width, height);
 }
+
+export function addAudioVizWidget(settings, bars = 16, rows = 8, fps = 20, asciiChar = '', vizStyle = 'auto') {
+    addWidget(settings, {
+        id: nextWidgetId(settings, 'audioviz'),
+        type: 'audioviz',
+        bars,
+        rows,
+        fps,
+        asciiChar,
+        vizStyle,
+    });
+}

@@ -12,6 +12,7 @@ import {
     buildSlideshowSettings,
     buildGifSettings,
     buildImageSettings,
+    buildAudioVizSettings,
 } from './widgetSettings.js';
 
 export function buildWidgetEditPanel(parentWindow, widget, settings, onSavedCallback) {
@@ -63,6 +64,9 @@ export function buildWidgetEditPanel(parentWindow, widget, settings, onSavedCall
             // runtime, so it needs the image settings and the animated ones both.
             rowIdx = buildImageSettings(grid, rowIdx, widget, settings, saveHandlers, parentWindow);
             rowIdx = buildGifSettings(grid, rowIdx, widget, saveHandlers);
+            break;
+        case 'audioviz':
+            rowIdx = buildAudioVizSettings(grid, rowIdx, widget, saveHandlers);
             break;
     }
 

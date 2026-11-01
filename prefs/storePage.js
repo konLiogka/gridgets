@@ -4,6 +4,7 @@ import Adw from 'gi://Adw';
 
 import {
     addMusicWidget,
+    addAudioVizWidget,
     addPomodoroWidget,
     addPomodoroFocusWidget,
     addCpuRamWidget,
@@ -192,6 +193,7 @@ function buildStoreCategories(window, settings, weatherState) {
                 card(STORE_WIDGETS.musicPlayerWide, () => addMusicWidget(settings, true)),
                 card(STORE_WIDGETS.imageGif, () => openAddImageDialog(window, settings)),
                 card(STORE_WIDGETS.imageSlideshow, () => openAddSlideshowDialog(window, settings)),
+                card(STORE_WIDGETS.audioViz, () => addAudioVizWidget(settings)),
             ],
         },
         {
